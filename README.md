@@ -1,11 +1,9 @@
-# GraphHopper Navigation SDK
+# Navigation SDK
 
 When your users want to get from one location to another, don’t push them out of your application into a generic map application.
 Instead, keep them engaged with your application 100% of the time with in-app turn-by-turn navigation.
 
-Our Navigation SDK for Android contains logic needed to get timed navigation instructions.
-
-It is 100% open source and was forked 2018 from Mapbox due to [licensing issues](https://github.com/mapbox/mapbox-navigation-android/issues/1391).
+The Navigation SDK for Android contains logic needed to get timed navigation instructions.
 
 It plays well with the open source [GraphHopper server](https://github.com/graphhopper/graphhopper-navigation).
 
@@ -13,6 +11,7 @@ It plays well with the open source [GraphHopper server](https://github.com/graph
 
 [MIT License](./LICENSE)
 
+It is 100% open source and was forked 2018 from Mapbox due to [licensing issues](https://github.com/mapbox/mapbox-navigation-android/issues/1391).
 
 ## Getting Started
 
