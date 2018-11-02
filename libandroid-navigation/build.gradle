@@ -1,0 +1,69 @@
+apply plugin: 'com.android.library'
+
+android {
+  compileSdkVersion androidVersions.compileSdkVersion
+  buildToolsVersion androidVersions.buildToolsVersion
+
+  defaultConfig {
+    minSdkVersion androidVersions.minSdkVersion
+    targetSdkVersion androidVersions.targetSdkVersion
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    buildConfigField('String',
+        "MAPBOX_NAVIGATION_SDK_IDENTIFIER", String.format("\"%s\"", "mapbox-navigation-android")
+    )
+    buildConfigField('String',
+        "MAPBOX_NAVIGATION_VERSION_NAME", String.format("\"%s\"", project.VERSION_NAME)
+    )
+    buildConfigField "String",
+        "MAPBOX_NAVIGATION_EVENTS_USER_AGENT", String.format("\"mapbox-navigation-android/%s\"",
+        project.VERSION_NAME
+    )
+    consumerProguardFiles 'proguard-consumer.pro'
+  }
+
+  configurations {
+    javadocDeps
+  }
+
+  buildTypes {
+    debug {
+      testCoverageEnabled = true
+    }
+  }
+
+  testOptions {
+    unitTests.returnDefaultValues = true
+    unitTests.includeAndroidResources = true
+  }
+}
+
+dependencies {
+  api dependenciesList.mapboxEvents
+  api dependenciesList.mapboxSdkServices
+  api dependenciesList.mapboxSdkTurf
+
+  // Support
+  implementation dependenciesList.supportAppcompatV7
+
+  // Logging
+  implementation dependenciesList.timber
+
+  // AutoValues
+  annotationProcessor dependenciesList.autoValue
+  compileOnly dependenciesList.autoValue
+
+  // Unit testing
+  testImplementation dependenciesList.junit
+  testImplementation dependenciesList.mockito
+  testImplementation dependenciesList.hamcrest
+  testImplementation dependenciesList.commonsIO
+  testImplementation dependenciesList.robolectric
+}
+
+apply from: 'javadoc.gradle'
+apply from: "${rootDir}/gradle/mvn-push-android.gradle"
+apply from: "${rootDir}/gradle/checkstyle.gradle"
+apply from: "${rootDir}/gradle/jacoco.gradle"
+apply from: "${rootDir}/gradle/dependencies-graph.gradle"
+apply from: "${rootDir}/gradle/dependency-updates.gradle"
