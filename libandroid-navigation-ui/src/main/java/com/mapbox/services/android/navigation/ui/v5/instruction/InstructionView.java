@@ -657,17 +657,13 @@ public class InstructionView extends RelativeLayout implements FeedbackBottomShe
   }
 
   /**
-   * First, checks if the turn lanes are visible (if they are, don't show then step).
-   * Second, checks if the upcoming step is less than 15 seconds long.
-   * This is our cue to show the thenStep.
+   * As a quickfix for showing incorrect then instructions, we decided not to show them at all.
    *
    * @param model to check the upcoming step
    * @return true if should show, false if not
    */
   private boolean shouldShowThenStep(InstructionModel model) {
-    return turnLaneLayout.getVisibility() != VISIBLE
-      && model.getThenBannerText() != null
-      && model.getStepResources().shouldShowThenStep();
+    return false;
   }
 
   /**
