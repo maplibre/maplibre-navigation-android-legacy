@@ -3,6 +3,9 @@
 .gradle
 /local.properties
 
+# Maven
+*/target/
+
 # IntelliJ
 out/
 

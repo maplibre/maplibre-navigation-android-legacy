@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.graphhopper</groupId>
+    <artifactId>graphhopper-navigation-libandroid</artifactId>
+    <name>GraphHopper Navigation SDK Project</name>
+    <version>0.20.0-SNAPSHOT</version>
+    <packaging>aar</packaging>
+    <url>https://www.graphhopper.com</url>
+    <description>GraphHopper Navigation SDK</description>
+
+    <parent>
+        <groupId>com.graphhopper</groupId>
+        <artifactId>graphhopper-navigation-parent</artifactId>    	
+        <version>0.20.0-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+	<dependency>
+	  <groupId>android</groupId>
+	  <artifactId>android</artifactId>
+	  <version>8.1.0_r1</version>
+	  <scope>provided</scope>
+	</dependency>
+
+	<dependency>
+          <groupId>com.mapbox.mapboxsdk</groupId>
+          <artifactId>mapbox-sdk-services</artifactId>
+          <version>4.0.0</version>
+        </dependency>
+        <dependency>
+          <groupId>com.mapbox.mapboxsdk</groupId>
+          <artifactId>mapbox-sdk-turf</artifactId>
+          <version>4.0.0</version>
+        </dependency>
+       <dependency>
+	  <groupId>com.mapbox.mapboxsdk</groupId>
+	  <artifactId>mapbox-android-sdk</artifactId>
+	  <version>6.5.0</version>
+	  <type>aar</type>
+	</dependency>
+        <dependency>
+          <groupId>com.mapbox.mapboxsdk</groupId>
+          <artifactId>mapbox-android-telemetry</artifactId>
+          <version>3.1.5</version>
+          <type>aar</type>
+        </dependency>
+        <dependency>
+          <groupId>com.mapbox.mapboxsdk</groupId>
+          <artifactId>mapbox-android-plugin-locationlayer</artifactId>
+          <version>0.8.1</version>
+          <type>aar</type>
+        </dependency>
+	<dependency>
+	  <groupId>com.mapzen.android</groupId>
+	  <artifactId>lost</artifactId>
+	  <version>3.0.4</version>
+	  <type>aar</type>
+	</dependency>
+	<dependency>
+	  <groupId>com.mapbox.mapboxsdk</groupId>
+	  <artifactId>mapbox-android-gestures</artifactId>
+	  <version>0.2.0</version>
+	  <type>aar</type>
+	</dependency>
+	
+	<dependency>
+          <groupId>com.android.support</groupId>
+          <artifactId>support-annotations</artifactId>
+          <version>27.1.1</version>
+        </dependency>
+	<dependency>
+          <groupId>com.android.support</groupId>
+          <artifactId>appcompat-v7</artifactId>
+          <version>27.1.1</version>
+        </dependency>	
+        <dependency>
+          <groupId>com.android.support</groupId>
+          <artifactId>support-v4</artifactId>
+          <version>27.1.1</version>
+        </dependency>	
+        <dependency>
+          <groupId>com.android.support</groupId>
+          <artifactId>design</artifactId>
+          <version>27.1.1</version>
+        </dependency>
+        <dependency>
+          <groupId>com.android.support</groupId>
+          <artifactId>recyclerview-v7</artifactId>
+          <version>27.1.1</version>
+        </dependency>
+        <dependency>
+          <groupId>com.android.support.constraint</groupId>
+          <artifactId>constraint-layout</artifactId>
+          <version>27.1.1</version>
+        </dependency>
+        <dependency>
+          <groupId>com.android.support</groupId>
+          <artifactId>cardview-v7</artifactId>
+          <version>27.1.1</version>
+        </dependency>
+    </dependencies>
+    <build>
+      <plugins>
+       <plugin>
+                <!-- See http://simpligility.github.io/android-maven-plugin/ -->
+                <groupId>com.simpligility.maven.plugins</groupId>
+                <artifactId>android-maven-plugin</artifactId>
+                <version>4.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <sdk>
+                        <!-- platform or api level (api level 8 = platform 2.2) -->                        
+                        <platform>27</platform>
+                    </sdk>
+                    <deleteConflictingFiles>true</deleteConflictingFiles>
+                    <undeployBeforeDeploy>true</undeployBeforeDeploy>
+		    
+                    <!--
+                    bug in maven plugin I think
+                    <extractDuplicates>true</extractDuplicates>
+                    -->
+                </configuration>                
+	</plugin> 
+      </plugins>
+    </build>
+</project>
