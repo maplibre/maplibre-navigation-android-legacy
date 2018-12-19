@@ -13,17 +13,17 @@ android:
     - android-27
 
 script:
-- make build-release
+  - make build-release
 
 after_success:
-# deploy snapshot artifacts to sonatype
-- if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    echo "release to maven central";
-    # Echo username and password into gradle.properties
-    # This will be picked up in gradle/mvn-push-android.gradle
-    echo "NEXUS_USERNAME=$CI_DEPLOY_USERNAME
-    NEXUS_PASSWORD=$CI_DEPLOY_PASSWORD" >> gradle.properties;
-    make publish;
-  else
-    echo "Not deploying artifacts for $TRAVIS_BRANCH";
-  fi
+  # deploy snapshot artifacts to sonatype
+  # Echo username and password into gradle.properties
+  # This will be picked up in gradle/mvn-push-android.gradle
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+        echo "release to maven central";
+        echo "NEXUS_USERNAME=$CI_DEPLOY_USERNAME
+        NEXUS_PASSWORD=$CI_DEPLOY_PASSWORD" >> gradle.properties;
+        make publish;
+    else
+        echo "Not deploying artifacts for $TRAVIS_BRANCH";
+    fi
