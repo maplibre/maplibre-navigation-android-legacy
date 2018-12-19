@@ -266,7 +266,9 @@ public class NavigationLauncherActivity extends AppCompatActivity implements OnM
 
   private void fetchRoute() {
     NavigationRoute.Builder builder = NavigationRoute.builder(this)
-      .accessToken(Mapbox.getAccessToken())
+      .accessToken(getString(R.string.gh_access_token))
+            .baseUrl(getString(R.string.base_url))
+            .user("gh")
       .origin(currentLocation)
       .destination(destination)
       .alternatives(true);

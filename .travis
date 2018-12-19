@@ -1,0 +1,4 @@
+language: android
+
+script:
+- make build-release
