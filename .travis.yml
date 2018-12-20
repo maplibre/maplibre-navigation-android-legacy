@@ -21,8 +21,6 @@ after_success:
   # This will be picked up in gradle/mvn-push-android.gradle
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         echo "release to maven central";
-        echo "NEXUS_USERNAME=$CI_DEPLOY_USERNAME
-        NEXUS_PASSWORD=$CI_DEPLOY_PASSWORD" >> gradle.properties;
         make publish;
     else
         echo "Not deploying artifacts for $TRAVIS_BRANCH";
