@@ -1,0 +1,27 @@
+language: android
+android:
+  components:
+    # Uncomment the lines below if you want to
+    # use the latest revision of Android SDK Tools
+    # - tools
+    # - platform-tools
+
+    # The BuildTools version used by your project
+    - build-tools-28.0.3
+
+    # The SDK version used to compile your project
+    - android-27
+
+script:
+  - make build-release
+
+after_success:
+  # deploy snapshot artifacts to sonatype
+  # Echo username and password into gradle.properties
+  # This will be picked up in gradle/mvn-push-android.gradle
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+        echo "release to maven central";
+        make publish;
+    else
+        echo "Not deploying artifacts for $TRAVIS_BRANCH";
+    fi

@@ -43,11 +43,11 @@ def obtainMavenLocalUrl() {
 }
 
 def getRepositoryUsername() {
-  return hasProperty('NEXUS_USERNAME') ? NEXUS_USERNAME : ""
+  return hasProperty('NEXUS_USERNAME') ? NEXUS_USERNAME : System.getenv('CI_DEPLOY_USERNAME')
 }
 
 def getRepositoryPassword() {
-  return hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : ""
+  return hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : System.getenv('CI_DEPLOY_PASSWORD')
 }
 
 afterEvaluate { project ->
