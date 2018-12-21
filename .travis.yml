@@ -17,10 +17,9 @@ script:
 
 after_success:
   # deploy snapshot artifacts to sonatype
-  # Echo username and password into gradle.properties
-  # This will be picked up in gradle/mvn-push-android.gradle
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         echo "release to maven central";
+        make build-release;
         make publish;
     else
         echo "Not deploying artifacts for $TRAVIS_BRANCH";
