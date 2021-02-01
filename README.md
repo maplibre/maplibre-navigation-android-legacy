@@ -5,7 +5,7 @@ Instead, keep them engaged with your application 100% of the time with in-app tu
 
 The Navigation SDK for Android contains logic needed to get timed navigation instructions.
 
-It plays well with the open source [GraphHopper server](https://github.com/graphhopper/graphhopper-navigation) as well as the [GraphHopper Directions API](https://www.graphhopper.com/products/).
+It plays well with the open source [GraphHopper server](https://github.com/graphhopper/graphhopper/tree/master/navigation) as well as the [GraphHopper Directions API](https://www.graphhopper.com/products/).
 
 ## License
 
