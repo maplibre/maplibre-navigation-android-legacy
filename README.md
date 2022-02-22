@@ -1,3 +1,7 @@
+# Deprecation
+
+This project is deprecated. Please migrate to [this new version](https://github.com/maplibre/maplibre-navigation-android).
+
 # Navigation SDK
 
 When your users want to get from one location to another, don’t push them out of your application into a generic map application.
